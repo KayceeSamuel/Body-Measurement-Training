@@ -1,0 +1,44 @@
+import os
+
+# ======================
+# Project Root
+# ======================
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ======================
+# Data Paths
+# ======================
+# Phone dataset (used in preprocess.py)
+PHONE_DATASET_PATH = os.path.join(ROOT_DIR, "src", "csv_datasets", "phone_dimensions.csv")
+
+# Raw measurement data
+BODY_MEASUREMENTS_PATH = os.path.join(ROOT_DIR, "src", "csv_datasets", "body_measurements.csv")
+
+# Merged datasets for training and testing
+MERGED_MEASUREMENT_TRAINING = "/content/drive/MyDrive/bodymeasurement/train/merged_measurements.csv"
+MERGED_MEASUREMENT_TEST = "/content/drive/MyDrive/bodymeasurement/testA/merged_measurements.csv"
+
+# Directory to store processed samples (used in preprocess.py)
+PREPROCESS_DIR = os.path.join(ROOT_DIR, "processed_samples")
+
+# Directory to store trained models
+SAVE_DIR = os.path.join(ROOT_DIR, "saved_models")
+
+# ======================
+# Training Configuration
+# ======================
+ACCUMULATION_STEPS = 4
+BATCH_SIZE = 16
+NUM_WORKERS = 2
+EPOCHS = 200
+CACHE_SIZE = 30000
+
+# ======================
+# Device
+# ======================
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+
+# ======================
+# Optional Logging/Debug
+# ======================
+VERBOSE = True
